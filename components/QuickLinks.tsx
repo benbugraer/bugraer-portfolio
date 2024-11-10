@@ -1,0 +1,59 @@
+"use client";
+import Link from "next/link";
+import GitHubRepoCount from "./GithubRepoCount";
+import { FaGithub, FaLinkedin, FaFilePdf } from "react-icons/fa";
+import { CSSProperties } from "react";
+
+const links = [
+  {
+    href: "https://github.com/benbugraer",
+    icon: <FaGithub className="w-5 h-5 text-[#181717] dark:text-[#e8eaea]" />,
+    content: (
+      <div className="flex gap-1">
+        <h1>
+          <GitHubRepoCount username="benbugraer" />
+        </h1>
+        <span className="text-sm">Repositories</span>
+      </div>
+    ),
+  },
+  {
+    href: "https://www.linkedin.com/in/n-bu%C4%9Fra-er/",
+    icon: <FaLinkedin className="w-5 h-5 text-[#0077B5]" />,
+    content: (
+      <div>
+        335<span className="text-sm"> Connections</span>
+      </div>
+    ),
+  },
+  {
+    href: "/resume.pdf",
+    icon: <FaFilePdf className="w-5 h-5 text-[#FF0000]" />,
+    content: (
+      <div>
+        <span className="text-sm">My Resume</span>
+      </div>
+    ),
+  },
+];
+
+export default function QuickLinks() {
+  return (
+    <ul className="space-y-2 animated-list">
+      {links.map((link, index) => (
+        <li key={index} className="transition-opacity">
+          <Link
+            className="flex gap-3 items-center no-underline animate-in"
+            style={{ "--index": index } as CSSProperties}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.icon}
+            {link.content}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}

@@ -2,20 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "@radix-ui/colors/gray.css";
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/green.css";
+@import "@radix-ui/colors/red.css";
+@import "@radix-ui/colors/gray-dark.css";
+@import "@radix-ui/colors/blue-dark.css";
+@import "@radix-ui/colors/green-dark.css";
+@import "@radix-ui/colors/red-dark.css";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  .main-header {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.radial-fade {
+  background: radial-gradient(
+    100% 100% at 100% 100%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 52px #6166dc, 0px 0px 20px #d2a8ff,
+      inset 0px 1px 3px rgba(255, 255, 255, 0.22);
+  }
+  70% {
+    box-shadow: 0px 0px 70px #6166dc, 0px 0px 40px #d2a8ff,
+      inset 0px 1px 3px rgba(255, 255, 255, 0.22);
+  }
+  100% {
+    box-shadow: 0px 0px 52px #6166dc, 0px 0px 20px #d2a8ff,
+      inset 0px 1px 3px rgba(255, 255, 255, 0.22);
+  }
+}
+
+@media (hover: hover) {
+  .animated-list:hover li {
+    opacity: 0.5;
+  }
+
+  .animated-list:hover li:hover {
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-delay: calc(var(--index) * 200ms);
+}
+
+.overflow-x-scroll.snap-x::-webkit-scrollbar {
+  /* hide scrollbars with webkit scrollbar */
+  display: none;
 }
