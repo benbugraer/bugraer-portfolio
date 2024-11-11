@@ -4,10 +4,22 @@ import QuickLinks from "@/components/QuickLinks";
 import { CSSProperties } from "react";
 import Link from "next/link";
 import TechStack from "@/components/TechStack";
+import { GridPattern } from "@/components/ui/grid-pattern";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-16 md:gap-24">
+      <GridPattern
+        width={67}
+        height={67}
+        x={-1}
+        y={-1}
+        strokeDasharray={"0 0"}
+        className={cn(
+          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)] fixed inset-0"
+        )}
+      />
       <div className="flex animate-in flex-col gap-8">
         <div>
           <h1

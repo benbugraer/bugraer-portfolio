@@ -1,11 +1,12 @@
+import { CSSProperties } from "react";
 import Nextjs from "@/public/icons/NextIcon";
 import TypeScript from "@/public/icons/TypeScriptIcon";
 import JavaScript from "@/public/icons/JavaScriptIcon";
 import React from "@/public/icons/ReactIcon";
 import TailwindCSS from "@/public/icons/TailwindIcon";
 import Expressjs from "@/public/icons/ExpressIcon";
-import MongoDB from "@/public/icons/MongoIcons";
-import { CSSProperties } from "react";
+// import MongoDB from "@/public/icons/MongoIcons";
+import Figma from "@/public/icons/FigmaIcon";
 
 const technologies = [
   { name: "NextJS", icon: <Nextjs /> },
@@ -14,7 +15,8 @@ const technologies = [
   { name: "React", icon: <React /> },
   { name: "TailwindCSS", icon: <TailwindCSS /> },
   { name: "ExpressJS", icon: <Expressjs /> },
-  { name: "MongoDB", icon: <MongoDB /> },
+  //   { name: "MongoDB", icon: <MongoDB /> },
+  { name: "Figma", icon: <Figma /> },
 ];
 
 export default function TechStack() {
