@@ -2,6 +2,8 @@ import Image from "next/image";
 import profile from "@/public/profile-photo.jpg";
 import QuickLinks from "@/components/QuickLinks";
 import { CSSProperties } from "react";
+import Link from "next/link";
+import TechStack from "@/components/TechStack";
 
 export default function Home() {
   return (
@@ -36,11 +38,15 @@ export default function Home() {
           className="max-w-xl animate-in text-primary text-[1rem] font-light"
           style={{ "--index": 3 } as CSSProperties}
         >
-          Hi, I&apos;m Bugra, I&apos;m 22 years old and I&apos;ve been learning
-          coding since June 2023 and now I&apos;m actively working on React,
-          Javascript, Tailwind, Next JS, Figma and Framer . Now I am actively
-          learning Redux & TypeScript.
+          Hi, I&apos;m Buğra I started my software journey in 2023 by leaving
+          everything aside, I&apos;m enjoying this journey very much, and
+          that&apos;s it for now, you know what you need to do{" "}
+          <Link href="/about" className="underline">
+            for more information
+          </Link>
+          .
         </p>
+        <TechStack />
       </div>
     </div>
   );

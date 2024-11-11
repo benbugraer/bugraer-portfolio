@@ -18,7 +18,7 @@ const links = [
     ),
   },
   {
-    href: "https://www.linkedin.com/in/n-bu%C4%9Fra-er/",
+    href: "https://www.linkedin.com/in/bugraer/",
     icon: <FaLinkedin className="w-5 h-5 text-[#0077B5]" />,
     content: (
       <div>

@@ -29,7 +29,12 @@ export default function RootLayout({
         )}
         suppressHydrationWarning
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navigation />
           <div className="px-6 md:px-6 pt-16 md:pt-20 md:pb-44 max-w-[700px] mx-auto">
             {children}
