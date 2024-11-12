@@ -1,29 +1,17 @@
 import Image from "next/image";
 import profile from "@/public/profile-photo.jpg";
-import QuickLinks from "@/components/QuickLinks";
+import QuickLinks from "@/components/home/QuickLinks";
 import { CSSProperties } from "react";
 import Link from "next/link";
-import TechStack from "@/components/TechStack";
-import { GridPattern } from "@/components/ui/grid-pattern";
-import { cn } from "@/lib/utils";
+import TechStack from "@/components/home/TechStack";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-16 md:gap-24">
-      <GridPattern
-        width={67}
-        height={67}
-        x={-1}
-        y={-1}
-        strokeDasharray={"0 0"}
-        className={cn(
-          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)] fixed inset-0"
-        )}
-      />
       <div className="flex animate-in flex-col gap-8">
         <div>
           <h1
-            className="animate-in text-xl font-bold uppercase tracking-tight text-primary"
+            className="animate-in text-2xl font-bold uppercase tracking-tight text-primary"
             style={{ "--index": 0 } as CSSProperties}
           >
             Bugra Er

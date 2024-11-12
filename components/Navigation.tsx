@@ -20,7 +20,7 @@ export default function Navigation() {
       <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-200/30 to-neutral-200/0 shadow-2xl" />
 
       <div className="container flex h-16 items-center w-full">
-        <nav className="flex items-center gap-5 text-center w-full ">
+        <nav className="flex items-center gap-5 text-center w-full">
           <ul className="flex items-center gap-3">
             {links.map((link) => (
               <li key={link.href}>

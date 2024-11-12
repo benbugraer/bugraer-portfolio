@@ -22,7 +22,10 @@ const technologies = [
 export default function TechStack() {
   return (
     <div className="flex flex-col items-center justify-center my-8 lg:my-0 lg:mt-16 rounded-xl text-center">
-      <h2 className="pb-8 uppercase text-lg text-secondary">
+      <h2
+        className="pb-8 uppercase text-lg text-secondary animate-in"
+        style={{ "--index": 4 } as CSSProperties}
+      >
         I love to work & build with
       </h2>
       <div className="flex flex-wrap justify-center gap-4">
@@ -30,7 +33,7 @@ export default function TechStack() {
           <div
             key={tech.name}
             className="flex flex-col items-center animate-in"
-            style={{ "--index": 4 + index } as CSSProperties}
+            style={{ "--index": 5 + index } as CSSProperties}
           >
             <div className="h-16 w-16 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
               <span className="text-4xl">{tech.icon}</span>
