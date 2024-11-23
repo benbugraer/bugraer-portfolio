@@ -6,6 +6,8 @@ import Navigation from "@/components/Navigation";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,10 +15,32 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Buğra Er | Home",
-  description: "Welcome to my little universe.",
+  metadataBase: new URL("https://bugraer.com"),
+  title: {
+    default: "Buğra Er - Frontend Developer",
+    template: "%s | Buğra Er",
+  },
+  openGraph: {
+    title: "Buğra Er - Frontend Developer",
+    type: "website",
+    url: "https://bugraer.com",
+  },
+  description: "Buğra Er - Frontend Developer portfolio website.",
+  keywords: [
+    "Buğra Er",
+    "bugraer",
+    "Frontend Developer",
+    "Web Developer",
+    "NextJS",
+    "React",
+    "TypeScript",
+    "TailwindCSS",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -52,6 +76,8 @@ export default function RootLayout({
             {children}
           </div>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
