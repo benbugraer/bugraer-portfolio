@@ -1,29 +1,27 @@
+"use client";
+
+import { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { ReactNode } from "react";
 
-interface NavLinksProps {
-  children: ReactNode;
+type NavLinkProps = Readonly<{
   href: string;
-}
+  children: ReactNode;
+}>;
 
-export default function NavLinks({ children, href }: NavLinksProps) {
-  const pathname = `/${usePathname().split("/")[1]}`;
+export default function NavLinks({ href, children }: NavLinkProps) {
+  const pathname = `/${usePathname()?.split("/")[1] ?? ""}`;
   const active = pathname === href;
   return (
-    <>
-      <Link
-        className={clsx(
-          "px-4 py-2 rounded-md text-xs hover:text-primary font-normal transition ease-linear duration-100",
-          active
-            ? "bg-primary text-primary  border border-primary"
-            : "text-secondary"
-        )}
-        href={href}
-      >
-        {children}
-      </Link>
-    </>
+    <Link
+      href={href}
+      className={clsx(
+        "px-4 py-1.5 text-sm hover:text-primary transition-all duration-200 hover:duration-200 hover:transition-all ease-linear",
+        active ? "text-primary" : "text-tertiary "
+      )}
+    >
+      {children}
+    </Link>
   );
 }

@@ -4,10 +4,17 @@ import QuickLinks from "@/components/home/QuickLinks";
 import { CSSProperties } from "react";
 import Link from "next/link";
 import TechStack from "@/components/home/TechStack";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-16 md:gap-24">
+    <div className="flex flex-col items-center justify-center gap-16 md:gap-24">
       <div className="flex animate-in flex-col gap-8">
         <div>
           <h1

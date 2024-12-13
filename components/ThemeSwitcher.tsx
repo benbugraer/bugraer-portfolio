@@ -1,42 +1,45 @@
 "use client";
 
-import * as React from "react";
-import { Moon, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
-  DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Moon, Sun, Monitor } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-type Theme = "light" | "dark" | "system";
-
-const THEME_OPTIONS: { label: string; value: Theme }[] = [
-  { label: "Light", value: "light" },
-  { label: "Dark", value: "dark" },
-  { label: "System", value: "system" },
+const THEME_CONFIG = [
+  {
+    value: "light",
+    label: "Light",
+    icon: Sun,
+  },
+  {
+    value: "dark",
+    label: "Dark",
+    icon: Moon,
+  },
+  {
+    value: "system",
+    label: "System",
+    icon: Monitor,
+  },
 ];
 
-const useThemeSwitcher = () => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
+export default function ThemeSwitcher() {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
-  React.useEffect(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
 
-  return { theme, setTheme, resolvedTheme, mounted };
-};
+  if (!mounted) return null;
 
-function ThemeSwitcherComponent() {
-  const { setTheme, mounted } = useThemeSwitcher();
-
-  if (!mounted) {
-    return null;
-  }
+  const ThemeIcon = THEME_CONFIG.find((t) => t.value === theme)?.icon || Sun;
 
   return (
     <DropdownMenu>
@@ -44,33 +47,25 @@ function ThemeSwitcherComponent() {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-md"
-          aria-label="Toggle theme"
+          className="inline-flex items-center rounded-full space-x-2 bg-primary dark:bg-primary dark:hover:bg-secondary px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-muted"
         >
-          <Sun
-            className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-            aria-hidden="true"
-          />
-          <Moon
-            className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-            aria-hidden="true"
-          />
+          <ThemeIcon className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {THEME_OPTIONS.map(({ label, value }) => (
+      <DropdownMenuContent className=" space-y-1 rounded-lg bg-primary dark:bg-primary ">
+        {THEME_CONFIG.map(({ value, label, icon: Icon }) => (
           <DropdownMenuItem
             key={value}
             onClick={() => setTheme(value)}
-            aria-label={`Switch to ${label} theme`}
+            className={theme === value ? "bg-tertiary " : "group"}
           >
-            {label}
+            <div className="flex items-center space-x-2">
+              <Icon className="h-4 w-4 text-tertiary group-hover:text-primary" />
+              <span>{label}</span>
+            </div>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
-
-export const ThemeSwitcher = React.memo(ThemeSwitcherComponent);
-ThemeSwitcher.displayName = "ThemeSwitcher";

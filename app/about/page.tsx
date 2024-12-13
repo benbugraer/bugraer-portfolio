@@ -1,19 +1,48 @@
-import Section from "./Section";
+import type { Metadata } from "next";
 import { CSSProperties } from "react";
 import Contact from "./Contact";
 
-export const metadata = {
-  title: "Bugra Er | About",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.bugraer.com/about"),
+  title: {
+    default: "About",
+    template: "%s | Buğra Er",
+  },
+  openGraph: {
+    title: "Buğra Er - About",
+    type: "website",
+    url: "https://www.bugraer.com/about",
+  },
   description:
-    "I am a Frontend developer who basically just enjoys creating somethings.",
+    "Learn about Buğra Er, a self-taught Frontend Developer passionate about building web applications with NextJS, React, and TypeScript. Discover my journey, skills, and how to get in touch.",
+  keywords: [
+    "Buğra Er",
+    "bugraer",
+    "Frontend Developer",
+    "Web Developer",
+    "NextJS",
+    "React",
+    "TypeScript",
+    "TailwindCSS",
+    "About",
+    "Contact",
+    "Software",
+    "My Life",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/about",
+  },
 };
-
 export default function About() {
   return (
-    <div className="flex flex-col gap-16 md:gap-20 ">
+    <div className="flex flex-col gap-10 overflow-hidden max-w-4xl justify-center mx-auto">
       <div>
         <h1
-          className="animate-in text-2xl font-bold tracking-tight"
+          className="animate-in text-2xl mb-4 font-bold tracking-tight"
           style={{ "--index": 1 } as CSSProperties}
         >
           About Me
@@ -26,11 +55,16 @@ export default function About() {
         </p>
       </div>
       <div className="flex flex-col gap-16 animate-in md:gap-24">
-        <Section
-          heading="About My Life"
-          headingAlignment="right"
-          style={{ "--index": 3 } as CSSProperties}
+        <section
+          className="col-reverse flex flex-col gap-2 md:flex-row md:gap-9"
+          id="about-my-life"
         >
+          <h2
+            className="shrink-0 text-secondary md:w-32 md:text-right animate-in"
+            style={{ "--index": 3 } as CSSProperties}
+          >
+            About My Life
+          </h2>
           <div
             className="flex flex-col gap-6 animate-in"
             style={{ "--index": 4 } as CSSProperties}
@@ -59,12 +93,18 @@ export default function About() {
               shop!
             </p>
           </div>
-        </Section>
-        <Section
-          heading="Software"
-          headingAlignment="right"
-          style={{ "--index": 8 } as CSSProperties}
+        </section>
+
+        <section
+          className="col-reverse flex flex-col gap-2 md:flex-row md:gap-9"
+          id="software"
         >
+          <h2
+            className="shrink-0 text-secondary md:w-32 md:text-right animate-in"
+            style={{ "--index": 8 } as CSSProperties}
+          >
+            Software
+          </h2>
           <div
             className="flex flex-col gap-6 animate-in"
             style={{ "--index": 9 } as CSSProperties}
@@ -80,15 +120,20 @@ export default function About() {
               Tailwind.
             </p>
           </div>
-        </Section>
+        </section>
 
-        <Section
-          heading="Contact Me"
-          headingAlignment="right"
-          style={{ "--index": 11 } as CSSProperties}
+        <section
+          className="col-reverse flex flex-col gap-2 md:flex-row md:gap-9"
+          id="contact-me"
         >
+          <h2
+            className="shrink-0 text-secondary md:w-32 md:text-right animate-in"
+            style={{ "--index": 11 } as CSSProperties}
+          >
+            Contact Me
+          </h2>
           <Contact />
-        </Section>
+        </section>
       </div>
     </div>
   );

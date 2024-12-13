@@ -25,7 +25,8 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://bugraer.com",
   },
-  description: "Buğra Er - Frontend Developer portfolio website.",
+  description:
+    "Frontend Developer specializing in React, NextJS, and TypeScript. Creating responsive, performant web applications with modern technologies. Based in Turkey, available for opportunities worldwide.",
   keywords: [
     "Buğra Er",
     "bugraer",
@@ -40,7 +41,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: "/",
+  },
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,7 +67,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navigation />
-          <div className="px-6 md:px-6 pt-16 md:pt-20 md:pb-44 max-w-[700px] mx-auto">
+          <div className="px-6 md:px-6 pt-16 md:pt-20 md:pb-44 max-w-[1200px] mx-auto">
             <GridPattern
               width={67}
               height={67}
