@@ -42,7 +42,7 @@ export default function Home() {
           <QuickLinks />
         </div>
         <p
-          className="max-w-xl animate-in text-primary text-[1rem] font-light"
+          className="max-w-xl animate-in text-primary text-[1rem] mt-6 font-light"
           style={{ "--index": 3 } as CSSProperties}
         >
           Hi, I&apos;m Buğra I started my software journey in 2023 by leaving

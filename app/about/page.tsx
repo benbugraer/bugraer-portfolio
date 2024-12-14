@@ -42,7 +42,7 @@ export default function About() {
     <div className="flex flex-col gap-10 overflow-hidden max-w-4xl justify-center mx-auto">
       <div>
         <h1
-          className="animate-in text-2xl mb-4 font-bold tracking-tight"
+          className="animate-in text-2xl mb-4 font-bold tracking-tight uppercase"
           style={{ "--index": 1 } as CSSProperties}
         >
           About Me
@@ -60,7 +60,7 @@ export default function About() {
           id="about-my-life"
         >
           <h2
-            className="shrink-0 text-secondary md:w-32 md:text-right animate-in"
+            className="shrink-0 text-secondary md:w-32 md:text-right animate-in font-bold"
             style={{ "--index": 3 } as CSSProperties}
           >
             About My Life
@@ -100,7 +100,7 @@ export default function About() {
           id="software"
         >
           <h2
-            className="shrink-0 text-secondary md:w-32 md:text-right animate-in"
+            className="shrink-0 text-secondary md:w-32 md:text-right animate-in font-bold"
             style={{ "--index": 8 } as CSSProperties}
           >
             Software
@@ -127,7 +127,7 @@ export default function About() {
           id="contact-me"
         >
           <h2
-            className="shrink-0 text-secondary md:w-32 md:text-right animate-in"
+            className="shrink-0 text-secondary md:w-32 md:text-right animate-in font-bold"
             style={{ "--index": 11 } as CSSProperties}
           >
             Contact Me
