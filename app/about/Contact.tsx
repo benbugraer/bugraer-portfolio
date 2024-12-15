@@ -16,6 +16,7 @@ export default function Contact() {
           {ContactLinks.map((link, index) => (
             <li className="transition-opacity col-span-1" key={link.label}>
               <Link
+                rel="noopener noreferrer"
                 href={link.href}
                 target="blank"
                 className="transition-opacity bg-tertiary no-underline w-full border rounded-lg p-4 border-primary inline-grid animate-in"

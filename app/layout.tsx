@@ -15,31 +15,41 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bugraer.com"),
+  metadataBase: new URL("https://www.bugraer.com/"),
   title: {
-    default: "Buğra Er - Frontend Developer",
+    default: "Buğra Er | Frontend Developer",
     template: "%s | Buğra Er",
   },
-  openGraph: {
-    title: "Buğra Er - Frontend Developer",
-    type: "website",
-    url: "https://bugraer.com",
-  },
   description:
-    "Frontend Developer specializing in React, NextJS, and TypeScript. Creating responsive, performant web applications with modern technologies. Based in Turkey, available for opportunities worldwide.",
+    "Frontend Developer specializing in React, Next.js, and modern web technologies. Check out my portfolio and projects.",
   keywords: [
-    "Buğra Er",
-    "bugraer",
     "Frontend Developer",
-    "Web Developer",
-    "NextJS",
     "React",
+    "Next.js",
+    "Web Development",
+    "JavaScript",
     "TypeScript",
-    "TailwindCSS",
   ],
+  creator: "Buğra Er",
+  openGraph: {
+    type: "website",
+    locale: "tr_TR, en_US",
+    url: "https://www.bugraer.com/",
+    title: "Buğra Er | Frontend Developer",
+    description:
+      "Frontend Developer specializing in React, Next.js, and modern web technologies.",
+    siteName: "Buğra Er Portfolio",
+  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
     canonical: "/",
