@@ -1,5 +1,5 @@
 import Image from "next/image";
-import profile from "@/public/profile-photo.jpg";
+import profile from "/public/profile-photo.jpg";
 import QuickLinks from "@/components/home/QuickLinks";
 import { CSSProperties } from "react";
 import Link from "next/link";
